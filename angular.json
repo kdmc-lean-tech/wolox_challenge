@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "wolox-challenge"
+    }
+  },
+  "defaultProject": "wolox-challenge",
+  "cli": {
+    "analytics": "a475a8ab-5951-4273-bdb1-696e09494088"
+  }
 }
