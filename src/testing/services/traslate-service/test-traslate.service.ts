@@ -7,6 +7,6 @@ export class TestTranslateService extends TranslateService {
     super(null, null, null, null, null, null, null, null, null);
   }
 
-  public setDefaultLang() {
+  public setDefaultLang(lang: string) {
   }
 }
