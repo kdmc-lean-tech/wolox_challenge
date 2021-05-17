@@ -1,0 +1,37 @@
+@import '../../../../scss/colors.scss';
+@import '../../../../scss/mixins.scss';
+
+:host button {
+  color: $white-0;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 100%;
+  &.green {
+    @include buttonStyle($green-0, $white-0);
+  }
+  &.blue {
+    @include buttonStyle($primary-0, $white-0);
+  }
+  &.xs {
+    height: 40px;
+    padding: 0 12px;
+  }
+  &.sm {
+    height: 50px;
+    font-weight: 400;
+    font-size: 16px;
+    padding: 0 25px;
+  }
+  &.md {
+    height: 60px;
+    font-weight: 400;
+    font-size: 18px;
+    padding: 0 55px;
+  }
+  &.lg {
+    height: 60px;
+    font-weight: 400;
+    font-size: 25px;
+    padding: 0 75px; 
+  }
+}

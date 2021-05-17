@@ -8,6 +8,8 @@
       "@auth/*": ["src/app/auth/*"],
       "@assets/*": ["src/assets/*"],
       "@environments/*": ["src/environments/*"],
+      "@shared/*": ["src/app/shared/*"],
+      "@services/*": ["src/app/services/*"]
     },
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",

@@ -25,6 +25,9 @@
     "@ngx-translate/core": "^13.0.0",
     "@ngx-translate/http-loader": "^6.0.0",
     "D": "^1.0.0",
+    "angular-svg-icon": "^11.2.0",
+    "ngx-page-scroll": "^7.0.4",
+    "ngx-page-scroll-core": "^7.0.4",
     "rxjs": "^6.5.5",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
