@@ -49,9 +49,4 @@ describe('AppComponent', () => {
     localStorage.setItem('lang', 'es');
     expect(localStorage.getItem('lang')).toBe('es');
   });
-
-  it('should render title', () => {
-    const element = fixture.debugElement.query(By.css('h1')).nativeElement as HTMLElement;
-    expect(element.innerHTML).toBe('Wolox Challenge App');
-  });
 });
