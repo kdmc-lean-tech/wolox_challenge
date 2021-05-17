@@ -4,7 +4,6 @@ import { TranslateModule } from '@ngx-translate/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { ButtonComponent } from '@shared/components/button/button.component';
-import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
 
 @NgModule({
   declarations: [
@@ -13,15 +12,13 @@ import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
   imports: [
     CommonModule,
     TranslateModule,
-    AngularSvgIconModule,
-    NgxPageScrollCoreModule
+    AngularSvgIconModule
   ],
   exports: [
     TranslateModule,
     ReactiveFormsModule,
     FormsModule,
     AngularSvgIconModule,
-    NgxPageScrollCoreModule,
     ButtonComponent
   ]
 })
