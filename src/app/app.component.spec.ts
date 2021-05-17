@@ -2,8 +2,9 @@ import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { TranslateService } from '@ngx-translate/core';
 import { TestTranslateService } from '@testing/services/traslate-service/test-traslate.service';
-import { By } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
+import { By } from '@angular/platform-browser';
+import { RouterOutlet } from '@angular/router';
 
 describe('AppComponent', () => {
   let component: AppComponent;
@@ -13,7 +14,7 @@ describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule.withRoutes([])
       ],
       declarations: [
         AppComponent
@@ -35,18 +36,27 @@ describe('AppComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should set in localstorage the lang default', () => {
-    /**
-     * Evaluate that the default language is set.
-     */
-    expect(localStorage.getItem('lang')).toBe('en');
+  describe('Testing Translate', () => {
+    it('should set in localstorage the lang default', () => {
+      /**
+       * Evaluate that the default language is set.
+       */
+      expect(localStorage.getItem('lang')).toBe('en');
+    });
+
+    it('should set in localstorage the lang', () => {
+      /**
+       * Sets a default value in the localStorage to check the setLanguage method.
+       */
+      localStorage.setItem('lang', 'es');
+      expect(localStorage.getItem('lang')).toBe('es');
+    });
   });
 
-  it('should set in localstorage the lang', () => {
-    /**
-     * Sets a default value in the localStorage to check the setLanguage method.
-     */
-    localStorage.setItem('lang', 'es');
-    expect(localStorage.getItem('lang')).toBe('es');
+  describe('Testing Router', () => {
+    it('should have a router-outlet', () => {
+      const element = fixture.debugElement.query(By.directive(RouterOutlet));
+      expect(element).not.toBeNull();
+    });
   });
 });

@@ -9,7 +9,7 @@ const routes: Routes = [
       .then(m => m.LayoutsModule)
   },
   {
-    path: 'login',
+    path: 'accounts',
     loadChildren: () => import('@auth/auth.module')
       .then(m => m.AuthModule)
   }
