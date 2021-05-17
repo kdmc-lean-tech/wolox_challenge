@@ -2,7 +2,12 @@
   "compileOnSave": false,
   "compilerOptions": {
     "paths": {
-      "@testing/*": ["src/testing/*"]
+      "@testing/*": ["src/testing/*"],
+      "@core/*": ["src/app/core/*"],
+      "@layouts/*": ["src/app/layouts/*"],
+      "@auth/*": ["src/app/auth/*"],
+      "@assets/*": ["src/assets/*"],
+      "@environments/*": ["src/environments/*"],
     },
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
