@@ -5,17 +5,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-direction: row;
+  @media (max-width: 780px) {
+    flex-direction: column;
+  }
   background-image: url('../../../assets/img/Bg_Header.png');
   .nav__logo {
     .nav__logo-link {
       .nav__logo-svg {
-        @media (min-width: 360px) {
-          width: 85px;
-        }
-        @media (min-width: 480px) {
-          width: 150px;
-        }
-        @media (min-width: 780px) {
+        @media (min-width: 300px) {
           width: 250px;
         }
         @media (min-width: 1280px) {
@@ -25,14 +23,19 @@
     }
   }
   ul {
+    margin: 0;
+    padding: 0;
     li {
       list-style: none;
     }
     .nav__menu {
       padding: 0;
       display: flex;
-      @media (min-width: 360px) {
-        gap: 10px;
+      @media (min-widt: 480px) {
+        flex-direction: column;
+      }
+      @media (min-width: 300px) {
+        gap: 25px;
       }
       @media (min-width: 780px) {
         gap: 50px;
@@ -41,10 +44,7 @@
         display: flex;
         align-items: center;
         a.nav__menu-item-link {
-          @media (min-width: 360px) {
-            @include text($black-0, 13px, 400, 'Monserrat Bold');
-          }
-          @media (min-width: 480px) {
+          @media (min-width: 300px) {
             @include text($black-0, 16px, 400, 'Monserrat Bold');
           }
           @media (min-width: 780px) {
