@@ -1,19 +1,23 @@
 <nav class="nav">
   <div class="nav__logo">
-    <a href="" class="nav__logo-link">
+    <a href="#home" class="nav__logo-link">
       <svg-icon src="assets/svg/logo_full_color.svg" [svgClass]="'nav__logo-svg'"></svg-icon>
     </a>
   </div>
   <ul>
     <div class="nav__menu">
       <li *ngFor="let item of menu; let i = index" class="nav__menu-item">
-        <a [href]="item.href" class="nav__menu-item-link">
+        <a (click)="navigateToResponseUrl(item.href)" class="nav__menu-item-link">
           {{ item.label | translate }}
         </a>
       </li>
       <li class="nav__menu-item-button">
-        <app-button [color]="'green'"
-          [size]="size$ | async">
+        <app-button
+          [color]="'green'"
+          [size]="size$ | async"
+          (submitted)="goToLogin()"
+          id="login-button"
+        >
           <span>Login</span>
         </app-button>
       </li>
