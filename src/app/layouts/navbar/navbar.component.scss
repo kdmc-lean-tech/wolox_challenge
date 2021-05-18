@@ -59,6 +59,21 @@
       }
       li.nav__menu-item-button {
         list-style: none;
+        app-button {
+          span {
+            @media (min-width: 300px) {
+              @include text($primary-0, 16px, 400, 'Monserrat Bold');
+            }
+            @media (min-width: 780px) {
+              @include text($primary-0, 20px, 400, 'Monserrat Bold');
+            }
+          }
+          &:hover {
+            span {
+              color: $white-0;
+            }
+          }
+        }
       }
     }
   }
