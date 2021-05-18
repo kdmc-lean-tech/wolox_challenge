@@ -1,7 +1,7 @@
 import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { TranslateService } from '@ngx-translate/core';
-import { TestTranslateService } from '@testing/services/traslate-service/test-traslate.service';
+import { TestTranslateService } from '@testing/services/translate-service/test-translate.service';
 import { AppComponent } from './app.component';
 import { By } from '@angular/platform-browser';
 import { RouterOutlet } from '@angular/router';
