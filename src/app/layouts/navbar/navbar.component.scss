@@ -44,6 +44,7 @@
         display: flex;
         align-items: center;
         a.nav__menu-item-link {
+          cursor: pointer;
           @media (min-width: 300px) {
             @include text($black-0, 16px, 400, 'Monserrat Bold');
           }

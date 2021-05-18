@@ -1,11 +1,11 @@
 import { async, ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { BreakpointObserverService } from '@services/breakpoint-observer/breakpoint-observer.service';
-import { TranslateMockPipe } from '@testing/pipes/test-trasnlate.pipe';
+import { TranslateMockPipe } from '@testing/pipes/test-translate.pipe';
 import {
   TestBreakPointObserverService
 } from '@testing/services/breakpoint-observer-service/test-breakpoint-observer.service';
-import { TestTranslateService } from '@testing/services/traslate-service/test-traslate.service';
+import { TestTranslateService } from '@testing/services/translate-service/test-translate.service';
 
 import { NavbarComponent } from './navbar.component';
 import { By } from '@angular/platform-browser';
