@@ -1,0 +1,57 @@
+@import '../../../../scss/colors.scss';
+@import '../../../../scss/mixins.scss';
+
+.landing__home {
+  display: flex;
+  @media (max-width: 780px) {
+    flex-direction: column;
+  }
+  .landing__home-img {
+    img {
+      width: 100%;
+    }
+    display: flex;
+    justify-content: center;
+    @media (min-width: 480px) {
+      flex: 25%;
+    }
+    @media (min-width: 780px) {
+      flex: 50%;
+    }
+    @media (min-width: 1300px) {
+      flex: 35%;
+    }
+  }
+  .landing__home-title {
+    flex: 100%;
+    @media (min-width: 480px) {
+      flex: 75%;
+    }
+    @media (min-width: 780px) {
+      flex: 50%;
+      margin-top: 100px;
+    }
+    @media (min-width: 1300px) {
+      flex: 65%;
+      margin-top: 100px;
+    }
+  }
+  .landing__home-title h1:nth-child(1) {
+    @media (min-width: 1300px) {
+      @include text($black-0, 45px, 200, 'Monserrat'); 
+    }
+    @include text($black-0, 25px, 200, 'Monserrat'); 
+  }
+  .landing__home-title h1:nth-child(2) {
+    @media (min-width: 1300px) {
+      @include text($black-0, 45px, 200, 'Monserrat Bold'); 
+    }
+    @include text($black-0, 25px, 200, 'Monserrat Bold');
+  }
+  .landing__home-title h1:nth-child(3) {
+    @media (min-width: 1300px) {
+      @include text($green-0, 45px, 200, 'Monserrat Bold');
+    }
+    @include text($green-0, 25px, 200, 'Monserrat Bold');
+  }
+}
