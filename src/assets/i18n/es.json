@@ -2,5 +2,13 @@
   "MENU": {
     "BENEFIT": "Beneficios",
     "HOME": "Inicio"
+  },
+  "LANDING": {
+    "WELCOME_TO": "Bienvenidos",
+    "YOUR": "su",
+    "TECHNICAL": "Técnica",
+    "INTERVIEW": "Entrevista",
+    "AT": "en",
+    "WOLOX": "Wolox"
   }
 }

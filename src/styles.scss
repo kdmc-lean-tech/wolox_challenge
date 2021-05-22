@@ -14,4 +14,22 @@ body {
   src: url('./assets/fonts/Montserrat/Montserrat-Bold.ttf') format('woff');
 }
 
-@include tooltip-styles;
+@font-face {
+  font-family: 'Monserrat';
+  src: url('./assets/fonts/Montserrat/Montserrat-Light.ttf') format('woff');
+}
+
+@font-face {
+  font-family: 'FiraSans';
+  src: url('./assets/fonts/Fira_Sans/FiraSans-Light.ttf') format('woff');
+}
+
+@font-face {
+  font-family: 'FiraSans Black';
+  src: url('./assets/fonts/Fira_Sans/FiraSans-Black.ttf') format('woff');
+}
+
+@font-face {
+  font-family: 'FiraSans Bold';
+  src: url('./assets/fonts/Fira_Sans/FiraSans-Bold.ttf') format('woff');
+}
