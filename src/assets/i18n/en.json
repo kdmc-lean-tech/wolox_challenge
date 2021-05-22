@@ -4,11 +4,11 @@
     "HOME": "Home"
   },
   "LANDING": {
-    "TITLE": {
-      "WELCOME": "Welcome to your",
-      "TECHNICAL_INTERVIEW": "Technical Interview",
-      "WOLOX": "Wolox",
-      "AT": "at"
-    }
+    "WELCOME_TO": "Welcome to",
+    "YOUR": "your",
+    "TECHNICAL": "Technical",
+    "INTERVIEW": "Interview",
+    "AT": "at",
+    "WOLOX": "Wolox"
   }
 }

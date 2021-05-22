@@ -4,11 +4,11 @@
     "HOME": "Inicio"
   },
   "LANDING": {
-    "TITLE": {
-      "WELCOME": "Bienvenido a tu",
-      "TECHNICAL_INTERVIEW": "Entrevista Técnica",
-      "WOLOX": "Wolox",
-      "AT": "en"
-    }
+    "WELCOME_TO": "Bienvenidos",
+    "YOUR": "su",
+    "TECHNICAL": "Técnica",
+    "INTERVIEW": "Entrevista",
+    "AT": "en",
+    "WOLOX": "Wolox"
   }
 }
