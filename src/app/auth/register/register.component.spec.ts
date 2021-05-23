@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { CountriesService } from '@services/countries/countries.service';
 import { TestCountriesService } from '@testing/services/countries/countries.service';
+import { AngularSvgIconModule } from 'angular-svg-icon';
 
 import { RegisterComponent } from './register.component';
 
@@ -13,6 +14,9 @@ describe('RegisterComponent', () => {
       declarations: [ RegisterComponent ],
       providers: [
         { provide: CountriesService, useClass: TestCountriesService }
+      ],
+      imports: [
+        AngularSvgIconModule
       ]
     })
     .compileComponents();
