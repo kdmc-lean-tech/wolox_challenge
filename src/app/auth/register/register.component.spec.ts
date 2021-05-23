@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CountriesService } from '@services/countries/countries.service';
 import { TestCountriesService } from '@testing/services/countries/countries.service';
 import { AngularSvgIconModule } from 'angular-svg-icon';
@@ -13,10 +14,8 @@ describe('RegisterComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ RegisterComponent ],
       providers: [
+        FormBuilder,
         { provide: CountriesService, useClass: TestCountriesService }
-      ],
-      imports: [
-        AngularSvgIconModule
       ]
     })
     .compileComponents();
