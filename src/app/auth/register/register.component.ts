@@ -127,7 +127,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
       .subscribe(({ token }) => {
         this.sessionService.setSessionData(token, body);
         this.form.reset();
-        this.router.navigate(['/dashboard']);
+        this.router.navigate(['dashboard']);
       });
   }
 

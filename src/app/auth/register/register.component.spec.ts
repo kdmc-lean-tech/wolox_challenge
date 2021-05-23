@@ -1,5 +1,6 @@
 import { async, ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { AbstractControl, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AuthService } from '@services/auth/auth.service';
 import { CountriesService } from '@services/countries/countries.service';
@@ -16,6 +17,7 @@ describe('RegisterComponent', () => {
   let countriesService: CountriesService;
   let sessionService: SessionService;
   let authService: AuthService;
+  let router: Router;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -36,6 +38,7 @@ describe('RegisterComponent', () => {
     countriesService = TestBed.inject(CountriesService);
     sessionService = TestBed.inject(SessionService);
     authService = TestBed.inject(AuthService);
+    router = TestBed.inject(Router);
     fixture = TestBed.createComponent(RegisterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -136,5 +139,20 @@ describe('RegisterComponent', () => {
       phoneControl.setValue('123456789104');
       expect(phoneControl.errors.maxlength.requiredLength).toEqual(10);
     });
+  });
+
+  it('should redirect to dashboard when user make submit', fakeAsync(() => {
+    const routerSpy = spyOn(router, 'navigate');
+    component.ngOnInit();
+    component.onSubmit();
+    tick();
+    expect(routerSpy).toHaveBeenCalledWith(['dashboard']);
+  }));
+
+  it('should go to terms and condition page', () => {
+    const routerSpy = spyOn(router, 'navigate');
+    component.ngOnInit();
+    component.goToTermsConditions();
+    expect(routerSpy).toHaveBeenCalledWith(['accounts/conditions']);
   });
 });
