@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { TokenResponse } from '@models/user.model';
 import { AuthService } from '@services/auth/auth.service';
 import { asyncData } from '@testing/helpers/async-observable-helpers';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 @Injectable()
 export class TestAuthService extends AuthService {
@@ -11,6 +11,6 @@ export class TestAuthService extends AuthService {
   }
 
   public signup(): Observable<TokenResponse> {
-    return asyncData({ token: '123456789' });
+    return of({ token: '123456789' });
   }
 }

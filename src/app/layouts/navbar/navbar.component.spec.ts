@@ -90,4 +90,10 @@ describe('NavbarComponent', () => {
     component.goToLogin();
     expect(routerSpy).toHaveBeenCalledWith(['/accounts/register']);
   }));
+
+  it('should redirect to landing', () => {
+    const routerSpy = spyOn(router, 'navigate');
+    component.logout();
+    expect(routerSpy).toHaveBeenCalledWith(['/']);
+  });
 });
