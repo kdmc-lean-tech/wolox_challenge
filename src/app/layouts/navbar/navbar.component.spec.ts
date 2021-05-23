@@ -11,11 +11,14 @@ import { NavbarComponent } from './navbar.component';
 import { By } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
+import { SessionService } from '@services/session/session.service';
+import { TestSessionService } from '@testing/services/session/test-session.service';
 
 describe('NavbarComponent', () => {
   let component: NavbarComponent;
   let fixture: ComponentFixture<NavbarComponent>;
   let router: Router;
+  let sessionService: SessionService;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -25,7 +28,8 @@ describe('NavbarComponent', () => {
       ],
       providers: [
         { provide: BreakpointObserverService, useClass: TestBreakPointObserverService },
-        { provide: TranslateService, useClass: TestTranslateService }
+        { provide: TranslateService, useClass: TestTranslateService },
+        { provide: SessionService, useClass: TestSessionService }
       ],
       imports: [
         TranslateModule,
@@ -35,6 +39,7 @@ describe('NavbarComponent', () => {
   }));
 
   beforeEach(() => {
+    sessionService = TestBed.inject(SessionService);
     fixture = TestBed.createComponent(NavbarComponent);
     component = fixture.componentInstance;
     router = TestBed.inject(Router);
@@ -83,6 +88,6 @@ describe('NavbarComponent', () => {
   it('should redirect to login page', fakeAsync(() => {
     const routerSpy = spyOn(router, 'navigate');
     component.goToLogin();
-    expect(routerSpy).toHaveBeenCalledWith(['/accounts/login']);
+    expect(routerSpy).toHaveBeenCalledWith(['/accounts/register']);
   }));
 });

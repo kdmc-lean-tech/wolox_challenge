@@ -1,4 +1,5 @@
 import { TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { RegisterGuard } from './register.guard';
 
@@ -6,7 +7,11 @@ describe('RegisterGuard', () => {
   let guard: RegisterGuard;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      imports: [
+        RouterTestingModule.withRoutes([])
+      ]
+    });
     guard = TestBed.inject(RegisterGuard);
   });
 
