@@ -34,7 +34,6 @@ export class SelectFieldComponent implements OnInit, AfterContentInit, ControlVa
   @Input() placeholder = 'Choose an option';
   @Input() label: string;
   @Input() isDisabled = false;
-  @Input() width = '100%';
   public temporalValue: any;
   public visibleMenu = false;
   public selectedOption: SelectFieldOptionComponent;

@@ -1,6 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { UserBody } from '@models/user.model';
+import { AuthService } from '@services/auth/auth.service';
 import { CountriesService } from '@services/countries/countries.service';
+import { SessionService } from '@services/session/session.service';
 import { emailValidator } from '@shared/utils/validators/custom-form-validators.utils';
 import { Subscription } from 'rxjs';
 
@@ -17,7 +21,10 @@ export class RegisterComponent implements OnInit, OnDestroy {
 
   constructor(
     private fb: FormBuilder,
-    private countriesService: CountriesService
+    private countriesService: CountriesService,
+    private authService: AuthService,
+    private sessionService: SessionService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -107,7 +114,25 @@ export class RegisterComponent implements OnInit, OnDestroy {
   }
 
   public onSubmit() {
-    // TODO: Pending call service.......
+    const body: UserBody = {
+      name: this.name.value,
+      lastName: this.lastName.value,
+      phone: this.phone.value,
+      password: this.password.value,
+      email: this.email.value,
+      country: this.country.value,
+      province: this.province.value
+    };
+    this.authService.signup(body)
+      .subscribe(({ token }) => {
+        this.sessionService.setSessionData(token, body);
+        this.form.reset();
+        this.router.navigate(['/dashboard']);
+      });
+  }
+
+  public goToTermsConditions() {
+    this.router.navigate(['accounts/conditions']);
   }
 
   ngOnDestroy() {

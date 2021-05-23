@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import './scss/mixins.scss';
+@import './scss/colors.scss';
 
 html, body {
   height: 100%;
@@ -32,4 +33,18 @@ body {
 @font-face {
   font-family: 'FiraSans Bold';
   src: url('./assets/fonts/Fira_Sans/FiraSans-Bold.ttf') format('woff');
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: $green-0 $gray-1;
+  &::-webkit-scrollbar {
+    width: 6px;
+    background-color: $gray-1;
+    border-radius: 0 8px 8px 0;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: $green-0;
+    border-radius: 0 8px 8px 0;
+  }
 }

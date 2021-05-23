@@ -4,9 +4,22 @@ import {
   BreakpointObserverService
 } from '@services/breakpoint-observer/breakpoint-observer.service';
 import { Router } from '@angular/router';
+import { SessionService } from '@services/session/session.service';
 
 const MENU = {
   user: [
+    {
+      href: '#home',
+      name: 'home',
+      label: 'MENU.HOME'
+    },
+    {
+      href: '#benefits',
+      name: 'benefits',
+      label: 'MENU.BENEFIT'
+    }
+  ],
+  admin: [
     {
       href: '#home',
       name: 'home',
@@ -27,13 +40,17 @@ const MENU = {
 })
 export class NavbarComponent implements OnInit {
   public size$: Observable<string>;
-  public menu = MENU.user;
+  public menu;
+  public isLoggedIn = false;
 
   constructor(
     private breakPointObserverService: BreakpointObserverService,
-    private router: Router
+    private router: Router,
+    private sessionService: SessionService
   ) {
     this.size$ = this.breakPointObserverService.sizeBreakpoint$;
+    this.isLoggedIn = this.sessionService.isLoggedIn;
+    this.isLoggedIn ? this.menu = MENU.admin : this.menu = MENU.user;
   }
 
   ngOnInit(): void {
@@ -44,6 +61,12 @@ export class NavbarComponent implements OnInit {
   }
 
   public goToLogin() {
-    this.router.navigate(['/accounts/login']);
+    this.router.navigate(['/accounts/register']);
+  }
+
+  public logout() {
+    this.sessionService.clearSession();
+    this.isLoggedIn = false;
+    this.router.navigate(['/']);
   }
 }
