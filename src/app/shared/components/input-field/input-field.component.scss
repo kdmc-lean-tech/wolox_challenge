@@ -1,0 +1,21 @@
+@import '../../../../scss/colors.scss';
+@import '../../../../scss/mixins.scss';
+
+.input__container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  span {
+    @include text($gray-0, 16px, 300, 'Monserrat');
+  }
+  input {
+    width: 100%;
+    padding: 10px 20px;
+    @include text($gray-0, 16px, 400, 'Monserrat');
+    letter-spacing: 1px;
+    background: transparent;
+    border-radius: 30px;
+    outline: none;
+    border: 1px solid $gray-0;
+  }
+}

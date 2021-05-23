@@ -49,15 +49,13 @@
         align-items: center;
         a.nav__menu-item-link {
           cursor: pointer;
-          @media (min-width: 300px) {
-            @include text($black-0, 16px, 400, 'Monserrat Bold');
-          }
-          @media (min-width: 780px) {
-            @include text($black-0, 20px, 400, 'Monserrat Bold');
-          }
+          @include text($black-0, 20px, 400, 'Monserrat Bold');
           text-decoration: none;
           &:hover {
             color: $green-0;
+          }
+          @media (max-width: 780px) {
+            @include text($black-0, 16px, 400, 'Monserrat Bold');
           }
         }
       }
@@ -65,12 +63,7 @@
         list-style: none;
         app-button {
           span {
-            @media (min-width: 300px) {
-              @include text($primary-0, 16px, 400, 'Monserrat Bold');
-            }
-            @media (min-width: 780px) {
-              @include text($primary-0, 20px, 400, 'Monserrat Bold');
-            }
+            @include text($primary-0, 20px, 400, 'Monserrat Bold');
           }
           &:hover {
             span {

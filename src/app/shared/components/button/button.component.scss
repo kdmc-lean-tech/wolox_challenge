@@ -34,4 +34,14 @@
     font-size: 25px;
     padding: 0 75px; 
   }
+  &:disabled {
+    background-color: rgba(0, 0, 0, 0.04);
+    color: rgba(0,0,0,.26);
+    cursor: not-allowed;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.04);
+      color: rgba(0,0,0,.26);
+    }
+  }
 }
