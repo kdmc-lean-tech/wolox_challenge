@@ -7,51 +7,38 @@
     flex-direction: column;
   }
   .landing__home-img {
+    height: 40%;
+    width: 50%;
     img {
       width: 100%;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
-    display: flex;
-    justify-content: center;
-    @media (min-width: 480px) {
-      flex: 25%;
-    }
-    @media (min-width: 780px) {
-      flex: 50%;
-    }
-    @media (min-width: 1300px) {
-      flex: 35%;
+    @media (max-width: 780px) {
+      width: 100%;
     }
   }
   .landing__home-title {
     flex: 100%;
-    @media (min-width: 480px) {
-      flex: 75%;
-    }
-    @media (min-width: 780px) {
-      flex: 50%;
-      margin-top: 100px;
-    }
-    @media (min-width: 1300px) {
-      flex: 65%;
-      margin-top: 100px;
+    @media (max-width: 780px) {
+      width: 100%;
     }
   }
   .landing__home-title h1:nth-child(1) {
-    @media (min-width: 1300px) {
-      @include text($black-0, 45px, 200, 'Monserrat'); 
-    }
-    @include text($black-0, 25px, 200, 'Monserrat'); 
+    @include text($black-0, 35px, 200, 'Monserrat'); 
   }
   .landing__home-title h1:nth-child(2) {
-    @media (min-width: 1300px) {
-      @include text($black-0, 45px, 200, 'Monserrat Bold'); 
-    }
-    @include text($black-0, 25px, 200, 'Monserrat Bold');
+    @include text($black-0, 35px, 200, 'Monserrat Bold'); 
   }
   .landing__home-title h1:nth-child(3) {
-    @media (min-width: 1300px) {
-      @include text($green-0, 45px, 200, 'Monserrat Bold');
+    @include text($green-0, 35px, 200, 'Monserrat Bold'); 
+  }
+  @media (max-width: 780px) {
+    h1 {
+      text-align: center;
     }
-    @include text($green-0, 25px, 200, 'Monserrat Bold');
   }
 }

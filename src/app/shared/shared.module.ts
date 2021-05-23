@@ -4,10 +4,16 @@ import { TranslateModule } from '@ngx-translate/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { ButtonComponent } from '@shared/components/button/button.component';
+import { InputFieldComponent } from './components/input-field/input-field.component';
+import { SelectFieldComponent } from './components/select-field/select-field.component';
+import { SelectFieldOptionComponent } from '@shared/components/select-field/select-field-option/select-field-option.component';
 
 @NgModule({
   declarations: [
-    ButtonComponent
+    ButtonComponent,
+    InputFieldComponent,
+    SelectFieldComponent,
+    SelectFieldOptionComponent
   ],
   imports: [
     CommonModule,
@@ -19,7 +25,10 @@ import { ButtonComponent } from '@shared/components/button/button.component';
     ReactiveFormsModule,
     FormsModule,
     AngularSvgIconModule,
-    ButtonComponent
+    ButtonComponent,
+    InputFieldComponent,
+    SelectFieldComponent,
+    SelectFieldOptionComponent
   ]
 })
 export class SharedModule { }

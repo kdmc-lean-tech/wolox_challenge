@@ -1,0 +1,28 @@
+<div class="select__container" [style.width]="width">
+  <label class="select__label" *ngIf="label">{{ label }}</label>
+  <div class="select__box">
+    <div class="select__options-container" #menuContainer>
+      <div class="select__option" #menu [class.hidden]="!visibleMenu">
+        <label fxLayout="column" *ngFor="let option of options; let i = index"
+          [class.active]="selectedOptionIdx === i">
+          <input type="radio"
+            (change)="optionChanged(option, i)"
+            [value]="option.value"
+            name="app-select-radio"
+            [id]="'option-' + i"
+            [disabled]="isDisabled"
+            (blur)="onTouched()">
+          <span>{{ option.viewValue }}</span>
+        </label>
+      </div>
+    </div>
+    <div #selected class="select__option-selected">
+      <div class="select__option-label">
+        {{ selectedOption === undefined ? placeholder : selectedOption.viewValue }}
+      </div>
+      <div select__icon #icon>
+        <svg-icon src="assets/svg/arrow_down.svg" [svgClass]="'register__form-logo-svg'"></svg-icon>
+      </div>
+    </div>
+  </div>
+</div>
