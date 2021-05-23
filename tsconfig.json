@@ -9,7 +9,9 @@
       "@assets/*": ["src/assets/*"],
       "@environments/*": ["src/environments/*"],
       "@shared/*": ["src/app/shared/*"],
-      "@services/*": ["src/app/services/*"]
+      "@services/*": ["src/app/services/*"],
+      "@models/*": ["src/app/models/*"],
+      "@guards/*": ["src/app/guards/*"],
     },
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",

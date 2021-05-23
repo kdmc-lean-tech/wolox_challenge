@@ -81,6 +81,7 @@
             [placeholder]="'Password'"
             [label]="'Password'"
             class="register__input"
+            [type]="'password'"
           ></app-input-field>
           <div class="register__errors">
             <span *ngIf="password.errors?.required && (password.dirty || password.touched)">
@@ -97,6 +98,7 @@
             [placeholder]="'Comfirm Password'"
             [label]="'Comfirm Password'"
             class="register__input"
+            [type]="'password'"
           ></app-input-field>
           <div class="register__errors">
             <span *ngIf="verifyPassword.errors?.required && (verifyPassword.dirty || verifyPassword.touched)">
@@ -136,7 +138,7 @@
       </div>
       <div class="register__conditions">
         <input type="checkbox" formControlName="conditions" name="conditions">
-        <label for="conditions">Terms and Conditions</label>
+        <label for="conditions" (click)="goToTermsConditions()">Terms and Conditions</label>
       </div>
       <div class="register__submit">
         <app-button
@@ -148,6 +150,11 @@
         >
         Register
         </app-button>
+        <div class="register__errors">
+          <span *ngIf="form.errors?.nonEqualPasswords">
+            Passwords do not match.
+          </span>
+        </div>
       </div>
     </form>
   </div>

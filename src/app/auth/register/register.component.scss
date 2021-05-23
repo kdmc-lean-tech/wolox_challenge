@@ -37,7 +37,7 @@
     flex-direction: column;
     justify-content: center;
     gap: 35px;
-    width: 50%;
+    width: 70%;
     height: 100%;
     .register__form-logo-svg {
       width: 350px;
@@ -52,9 +52,7 @@
         flex-direction: row;
         gap: 20%;
         .register__input-container {
-          .register__input {
-            width: 100%;
-          }
+          width: 250px;
           .register__errors {
             height: 10px;
              span {
@@ -72,10 +70,7 @@
         gap: 18%;
         flex-direction: row;
         .register__select-container {
-          width: auto;
-          .register__select {
-            width: 230px;
-          }
+          min-width: 200px;
           .register__errors {
             height: 10px;
              span {
@@ -90,14 +85,26 @@
       .register__submit {
         display: flex;
         justify-content: center;
+        align-items: center;
+        flex-direction: column;
         app-button {
           width: 350px;
         }
         margin-top: 20px;
+        .register__errors {
+          height: 10px;
+           span {
+             margin-top: 5px;
+             color: $red-0;
+           }
+           display: flex;
+           flex-direction: column;
+        }
       }
       .register__conditions {
         label {
           @include text($gray-0, 15px, 400, 'Monserrat Bold');
+          cursor: pointer;
         }
         margin-top: 20px;
       }
@@ -118,7 +125,7 @@
         }
         .select__countries {
           flex-direction: column;
-          width: 300px;
+          width: 250px;
           .register__select-container {
             margin-bottom: 20px;
           }

@@ -11,14 +11,29 @@
           {{ item.label | translate }}
         </a>
       </li>
-      <li class="nav__menu-item-button">
+      <li class="nav__menu-item" *ngIf="isLoggedIn">
+        <a [routerLink]="['/dashboard']" class="nav__menu-item-link">
+          List
+        </a>
+      </li>
+      <li *ngIf="!isLoggedIn" class="nav__menu-item-button">
         <app-button
           [color]="'blue'"
           [size]="size$ | async"
           (submitted)="goToLogin()"
           id="login-button"
         >
-          <span>Login</span>
+          <span>{{ 'LANDING.REGISTER' | translate }}</span>
+        </app-button>
+      </li>
+      <li *ngIf="isLoggedIn" class="nav__menu-item-button">
+        <app-button
+          [color]="'blue'"
+          [size]="size$ | async"
+          (submitted)="logout()"
+          id="login-button"
+        >
+          <span>{{ 'LANDING.LOGOUT' | translate }}</span>
         </app-button>
       </li>
     </div>

@@ -9,6 +9,8 @@
     "TECHNICAL": "Technical",
     "INTERVIEW": "Interview",
     "AT": "at",
-    "WOLOX": "Wolox"
+    "WOLOX": "Wolox",
+    "REGISTER": "Register",
+    "LOGOUT": "Logout"
   }
 }

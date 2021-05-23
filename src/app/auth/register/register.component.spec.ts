@@ -1,7 +1,12 @@
 import { async, ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { AbstractControl, FormBuilder } from '@angular/forms';
+import { RouterTestingModule } from '@angular/router/testing';
+import { AuthService } from '@services/auth/auth.service';
 import { CountriesService } from '@services/countries/countries.service';
+import { SessionService } from '@services/session/session.service';
+import { TestAuthService } from '@testing/services/auth/test-auth.service';
 import { TestCountriesService } from '@testing/services/countries/countries.service';
+import { TestSessionService } from '@testing/services/session/test-session.service';
 
 import { RegisterComponent } from './register.component';
 
@@ -9,19 +14,28 @@ describe('RegisterComponent', () => {
   let component: RegisterComponent;
   let fixture: ComponentFixture<RegisterComponent>;
   let countriesService: CountriesService;
+  let sessionService: SessionService;
+  let authService: AuthService;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ RegisterComponent ],
       providers: [
         FormBuilder,
-        { provide: CountriesService, useClass: TestCountriesService }
+        { provide: CountriesService, useClass: TestCountriesService },
+        { provide: AuthService, useClass: TestAuthService },
+        { provide: SessionService, useClass: TestSessionService }
+      ],
+      imports: [
+        RouterTestingModule.withRoutes([])
       ]
     });
   }));
 
   beforeEach(() => {
     countriesService = TestBed.inject(CountriesService);
+    sessionService = TestBed.inject(SessionService);
+    authService = TestBed.inject(AuthService);
     fixture = TestBed.createComponent(RegisterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
