@@ -6,4 +6,12 @@ export class TestCountriesService extends CountriesService {
   constructor() {
     super();
   }
+
+  public getCountries(): string[] {
+    return ['Colombia', 'Argentina'];
+  }
+
+  public getProvincesByCountry(country: string): string[] {
+    return ['Cali', 'Medellin', 'Bogotá'];
+  }
 }
