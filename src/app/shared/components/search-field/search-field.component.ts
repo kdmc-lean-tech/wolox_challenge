@@ -1,26 +1,42 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, forwardRef } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'app-search-field',
   templateUrl: './search-field.component.html',
-  styleUrls: ['./search-field.component.scss']
+  styleUrls: ['./search-field.component.scss'],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => SearchFieldComponent),
+      multi: true
+    }
+  ]
 })
-export class SearchFieldComponent {
-
+export class SearchFieldComponent implements ControlValueAccessor {
   public searchValue = '';
-  private lastEmittedValue: string;
-
   @Input() placeholder = 'Search';
-  @Input() set value(value: string) {
-    this.searchValue = value || '';
-    this.lastEmittedValue = this.searchValue;
-  }
-  @Output() valueChanged = new EventEmitter<string>();
+  public disabled = false;
+  onChange = (_: any) => {};
+  onTouched = () => {};
 
   public onDebouncedInput(value: string): void {
-    if (value !== this.lastEmittedValue) {
-      this.valueChanged.emit(value);
-      this.lastEmittedValue = value;
+    this.onChange(value);
+  }
+
+  writeValue(value: string) {
+    if (value) {
+      this.searchValue = value;
+    } else {
+      this.searchValue = '';
     }
+  }
+
+  registerOnChange(fn: any) {
+    this.onChange = fn;
+  }
+
+  registerOnTouched(fn: any) {
+    this.registerOnTouched = fn;
   }
 }

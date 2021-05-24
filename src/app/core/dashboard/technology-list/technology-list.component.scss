@@ -2,8 +2,30 @@
 .technology-list__container {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
+  flex-direction: column;
   align-items: center;
-  gap: 50px;
-  margin-top: 50px;
+  gap: 35px;
+  .technology-list__List {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 50px;
+    margin-top: 50px;
+  }
+  .technology-list__filters {
+    display: flex;
+    flex-direction: row;
+    gap: 75px;
+    @media (max-width: 780px) {
+      flex-direction: column;
+      gap: 25px; 
+    }
+    app-select-field {
+      width: 250px;
+    }
+    app-search-field {
+      width: 250px;
+    }
+  }
 }
