@@ -12,7 +12,8 @@ import { map } from 'rxjs/operators';
 })
 export class TechnologyListComponent implements OnInit, OnDestroy {
   public technologies: Technology[] = [];
-  public sortTechnologiesList: string[] = ['Ascending', 'Descending'];
+  public sortTechnologiesList: { label: string, value: string }[] = [
+    { label: 'Ascending', value: 'ASC' }, { label: 'Descending', value: 'DESC' }];
   public form: FormGroup;
   private subscriptions = new Subscription();
 
@@ -23,18 +24,19 @@ export class TechnologyListComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.createForm();
-    this.getTechnologies('', 'Ascending');
+    this.getTechnologies('', );
     this.listenChangesInForm();
   }
 
   private createForm() {
     this.form = this.fb.group({
-      sort: new FormControl('Ascending'),
+      sort: new FormControl(''),
       search: new FormControl('')
     });
+    this.form.get('sort').setValue({ label: 'Ascending', value: 'ASC' });
   }
 
-  public getTechnologies(search: string, sort: 'Ascending' | 'Descending' = 'Ascending') {
+  public getTechnologies(search: string, sort: 'ASC' | 'DESC' = 'ASC') {
     this.technologyService.getTechnologies()
       .pipe(
         map((technologies) =>
@@ -45,11 +47,11 @@ export class TechnologyListComponent implements OnInit, OnDestroy {
       ))
       .pipe(
         map((technologies) => {
-          if (sort === 'Ascending') {
+          if (sort === 'ASC') {
             return technologies.sort((a, b) =>
               a.tech?.toLowerCase() > b.tech?.toLocaleLowerCase() ? 1 : -1);
           }
-          if (sort ===  'Descending') {
+          if (sort ===  'DESC') {
             return technologies.sort((a, b) =>
               a.tech?.toLocaleLowerCase() < b.tech?.toLocaleLowerCase() ? 1 : -1);
           }
@@ -61,8 +63,7 @@ export class TechnologyListComponent implements OnInit, OnDestroy {
   private listenChangesInForm() {
     this.subscriptions.add(
       this.form.valueChanges.subscribe(values => {
-        console.log(values);
-        this.getTechnologies(values.search, values.sort);
+        this.getTechnologies(values.search, values.sort.value);
       })
     );
   }

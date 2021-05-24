@@ -114,12 +114,14 @@ export class SelectFieldComponent implements OnInit, AfterContentInit, ControlVa
   private findSelectedOption(value: any): void {
     let foundOption: SelectFieldOptionComponent;
     let foundOptionIdx: number;
-    this.options.forEach((option, i) => {
-      if (option.value === value) {
-        foundOption = option;
-        foundOptionIdx = i;
-      }
-    });
+    if (this.options.length > 0) {
+      this.options.forEach((option, i) => {
+        if (JSON.stringify(value) === JSON.stringify(option.value)) {
+          foundOption = option;
+          foundOptionIdx = i;
+        }
+      });
+    }
     if (foundOption) {
       this.selectedOption = foundOption;
       this.selectedOptionIdx = foundOptionIdx;
