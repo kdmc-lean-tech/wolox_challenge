@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormBuilder } from '@angular/forms';
 import { TechnologyService } from '@services/technologies/technologies.service';
 import { TestTechnologiesService } from '@testing/services/technologies/test-technologies.service';
 
@@ -13,7 +14,8 @@ describe('TechnologyListComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ TechnologyListComponent ],
       providers: [
-        { provide: TechnologyService, useClass: TestTechnologiesService }
+        { provide: TechnologyService, useClass: TestTechnologiesService },
+        FormBuilder
       ]
     })
     .compileComponents();
