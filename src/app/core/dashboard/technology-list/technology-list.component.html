@@ -4,7 +4,7 @@
     </app-search-field>
     <app-select-field formControlName="sort">
       <app-select-field-option *ngFor="let s of sortTechnologiesList" [value]="s">
-        {{ s }}
+        {{ s.label }}
       </app-select-field-option>
     </app-select-field>
   </form>
