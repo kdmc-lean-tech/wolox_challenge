@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CountriesService } from '@services/countries/countries.service';
+import { countriesMock, provincesMock } from '@testing/__mocks__/countries.mock';
 
 @Injectable()
 export class TestCountriesService extends CountriesService {
@@ -8,10 +9,10 @@ export class TestCountriesService extends CountriesService {
   }
 
   public getCountries(): string[] {
-    return ['Colombia', 'Argentina'];
+    return countriesMock;
   }
 
   public getProvincesByCountry(country: string): string[] {
-    return ['Cali', 'Medellin', 'Bogotá'];
+    return provincesMock;
   }
 }

@@ -1,0 +1,12 @@
+<div class="tech-card__container">
+  <div class="tech-card__circle">
+    <div class="tech-card__content">
+      <h2>{{ technology?.tech }}</h2>
+      <p>This technology was created by {{ technology?.author }} in {{ technology?.year }},
+        under {{ technology?.license }} license. It is used in the {{ technology?.type }}
+        and works with the <strong>{{ technology?.language }}</strong> language.
+      </p>
+    </div>
+    <img *ngIf="technology?.logo" [src]="technology?.logo" alt="logo_tech" appImgFallback>
+  </div>
+</div>

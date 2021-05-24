@@ -6,7 +6,7 @@ import { AuthService } from '@services/auth/auth.service';
 import { CountriesService } from '@services/countries/countries.service';
 import { SessionService } from '@services/session/session.service';
 import { TestAuthService } from '@testing/services/auth/test-auth.service';
-import { TestCountriesService } from '@testing/services/countries/countries.service';
+import { TestCountriesService } from '@testing/services/countries/test-countries.service';
 import { TestSessionService } from '@testing/services/session/test-session.service';
 
 import { RegisterComponent } from './register.component';
