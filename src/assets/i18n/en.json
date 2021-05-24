@@ -11,6 +11,7 @@
     "AT": "at",
     "WOLOX": "Wolox",
     "REGISTER": "Register",
-    "LOGOUT": "Logout"
+    "LOGOUT": "Logout",
+    "LIST": "List"
   }
 }
