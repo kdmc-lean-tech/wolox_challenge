@@ -3,12 +3,12 @@
     <app-search-field formControlName="search" [placeholder]="'Search....'">
     </app-search-field>
     <app-select-field formControlName="sort">
-      <app-select-field-option *ngFor="let s of sortTechnologiesList" [value]="s">
+      <app-select-field-option *ngFor="let s of sortTechnologiesList" [value]="s" id="option">
         {{ s.label }}
       </app-select-field-option>
     </app-select-field>
   </form>
   <div class="technology-list__List">
-    <app-tech-card *ngFor="let tech of technologies" [technology]="tech"></app-tech-card>
+    <app-tech-card class="technology-list__card" *ngFor="let tech of technologies" [technology]="tech"></app-tech-card>
   </div>
 </div>
