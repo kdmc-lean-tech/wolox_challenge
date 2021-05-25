@@ -19,4 +19,13 @@ export const technologiesMock: Technology[] = [
     type: 'Mobile',
     logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/220px-React-icon.svg.png'
   },
+  {
+    tech: 'React',
+    year: '2013',
+    author: 'Jordan Walke',
+    license: 'MIT',
+    language: 'JavaScript',
+    type: 'Front-End',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/220px-React-icon.svg.png'
+  },
 ];
