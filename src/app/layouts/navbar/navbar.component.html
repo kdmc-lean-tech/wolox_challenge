@@ -41,9 +41,10 @@
     </ul>
   </div>
   <section class="nav__favorites">
-    <ng-container *ngFor="let favorite of favorites | async">
+    <div *ngFor="let favorite of favorites | async" class="nav__favorites-item">
       <img [src]="favorite.logo" alt="image-tech" appImgFallback>
-    </ng-container>
+      <span>{{ favorite?.name }}</span>
+    </div>
   </section>
   <ng-content></ng-content>
 </nav>

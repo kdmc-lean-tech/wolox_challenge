@@ -6,7 +6,7 @@ import { TestTechnologiesService } from '@testing/services/technologies/test-tec
 import { TechnologyListComponent } from './technology-list.component';
 import { By } from '@angular/platform-browser';
 
-describe('TechnologyListComponent', () => {
+fdescribe('TechnologyListComponent', () => {
   let component: TechnologyListComponent;
   let fixture: ComponentFixture<TechnologyListComponent>;
   let technologyService: TechnologyService;
@@ -170,6 +170,15 @@ describe('TechnologyListComponent', () => {
           const elements = fixture.debugElement.queryAll(By.css('.technology-list__card'));
           expect(elements.length).toEqual(3);
         });
+    }));
+
+    it('should render total technologies', fakeAsync(() => {
+      component.ngOnInit();
+      const element = fixture.debugElement.query(By.css('h2')).nativeElement as HTMLElement;
+      spyOn(technologyService, 'getTechnologies').and.callThrough();
+      tick();
+      fixture.detectChanges();
+      expect(element.innerHTML).toBe(`3 Technologies Found...`);
     }));
   });
 });
