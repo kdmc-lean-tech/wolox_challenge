@@ -1,77 +1,90 @@
 @import '../../../scss/colors.scss';
 @import '../../../scss/mixins.scss';
 
+
 .nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: row;
-  position: sticky; top: 0;
-  padding: 25px 0;
-  width: 100%;
-  @media (max-width: 900px) {
-    flex-direction: column;
-  }
-  background-image: url('../../../assets/img/Bg_Header.png');
-  background-color: $white-0;
-  .nav__logo {
-    .nav__logo-link {
-      .nav__logo-svg {
-        @media (min-width: 300px) {
-          width: 250px;
-        }
-        @media (min-width: 1280px) {
-          width: 350px;
+  .nav__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    padding: 25px 0;
+    width: 100%;
+    @media (max-width: 900px) {
+      flex-direction: column;
+    }
+    background-image: url('../../../assets/img/Bg_Header.png');
+    background-color: $white-0;
+    .nav__logo {
+      .nav__logo-link {
+        .nav__logo-svg {
+          @media (min-width: 300px) {
+            width: 250px;
+          }
+          @media (min-width: 1280px) {
+            width: 350px;
+          }
         }
       }
     }
-  }
-  ul {
-    margin: 0;
-    padding: 0;
-    li {
-      list-style: none;
-    }
-    .nav__menu {
+    ul {
+      margin: 0;
       padding: 0;
-      display: flex;
-      @media (min-widt: 480px) {
-        flex-direction: column;
+      li {
+        list-style: none;
       }
-      @media (min-width: 300px) {
-        gap: 25px;
-      }
-      @media (min-width: 780px) {
-        gap: 50px;
-      }
-      li.nav__menu-item {
+      .nav__menu {
+        padding: 0;
         display: flex;
-        align-items: center;
-        a.nav__menu-item-link {
-          cursor: pointer;
-          @include text($black-0, 20px, 400, 'Monserrat Bold');
-          text-decoration: none;
-          &:hover {
-            color: $green-0;
-          }
-          @media (max-width: 780px) {
-            @include text($black-0, 16px, 400, 'Monserrat Bold');
+        @media (min-widt: 480px) {
+          flex-direction: column;
+        }
+        @media (min-width: 300px) {
+          gap: 25px;
+        }
+        @media (min-width: 780px) {
+          gap: 50px;
+        }
+        li.nav__menu-item {
+          display: flex;
+          align-items: center;
+          a.nav__menu-item-link {
+            cursor: pointer;
+            @include text($black-0, 20px, 400, 'Monserrat Bold');
+            text-decoration: none;
+            &:hover {
+              color: $green-0;
+            }
+              @media (max-width: 780px) {
+              @include text($black-0, 16px, 400, 'Monserrat Bold');
+            }
           }
         }
-      }
-      li.nav__menu-item-button {
-        list-style: none;
-        app-button {
-          span {
-            @include text($primary-0, 20px, 400, 'Monserrat Bold');
-          }
-          &:hover {
+        li.nav__menu-item-button {
+          list-style: none;
+          app-button {
             span {
-              color: $white-0;
+              @include text($primary-0, 20px, 400, 'Monserrat Bold');
+            }
+            &:hover {
+              span {
+                color: $white-0;
+              }
             }
           }
         }
       }
+    }
+  }
+  .nav__favorites {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+    gap: 20px;
+    img {
+      height: 75px;
+      width: 95px;
     }
   }
 }

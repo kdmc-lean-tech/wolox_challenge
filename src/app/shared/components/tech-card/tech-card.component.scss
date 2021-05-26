@@ -31,6 +31,17 @@
     border-radius: 50%;
     background-color: $white-0;
   }
+  .tech-card__logo-svg-no-toogle {
+    height: 55px;
+    filter: brightness(0) invert(1);
+    margin-left: 45px;
+    cursor: pointer;
+  }
+  .tech-card__logo-svg-toogle {
+    height: 55px;
+    margin-left: 45px;
+    cursor: pointer;
+  }
   .tech-card__circle {
     position: absolute;
     top: 0;
@@ -73,6 +84,17 @@
     p {
       color: $white-0;
       @include text($white-0, 15px, 400, 'Monserrat');
+    }
+    .tech-card__logo-svg-no-toogle {
+      height: 35px;
+      filter: brightness(0) invert(1);
+      margin-left: 0;
+      cursor: pointer;
+    }
+    .tech-card__logo-svg-toogle {
+      height: 35px;
+      margin-left: 0;
+      cursor: pointer;
     }
   }
   &:hover .tech-card__content {

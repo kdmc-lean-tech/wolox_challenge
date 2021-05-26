@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { Technology } from '@models/technology.model';
+import { SortTechnology, Technology } from '@models/technology.model';
 import { TechnologyService } from '@services/technologies/technologies.service';
 import { Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -12,10 +12,13 @@ import { map } from 'rxjs/operators';
 })
 export class TechnologyListComponent implements OnInit, OnDestroy {
   public technologies: Technology[] = [];
-  public sortTechnologiesList: { label: string, value: string }[] = [
-    { label: 'Ascending', value: 'ASC' }, { label: 'Descending', value: 'DESC' }];
+  public sortTechnologiesList: SortTechnology[] = [
+    { label: 'Ascending', value: 'ASC' },
+    { label: 'Descending', value: 'DESC' }
+  ];
   public form: FormGroup;
   private subscriptions = new Subscription();
+  favorites = [];
 
   constructor(
     private technologyService: TechnologyService,
@@ -41,9 +44,9 @@ export class TechnologyListComponent implements OnInit, OnDestroy {
       .pipe(
         map((technologies) =>
         technologies.filter(t =>
-          t.tech?.toLocaleLowerCase()?.includes(search?.toLowerCase())
+          t.tech?.toLocaleLowerCase()?.includes(search?.toLowerCase()?.trim())
           ||
-          t.type?.toLocaleLowerCase().includes(search?.toLowerCase()))
+          t.type?.toLocaleLowerCase().includes(search?.toLowerCase()?.trim()))
       ))
       .pipe(
         map((technologies) => {
@@ -56,8 +59,7 @@ export class TechnologyListComponent implements OnInit, OnDestroy {
               a.tech?.toLocaleLowerCase() < b.tech?.toLocaleLowerCase() ? 1 : -1);
           }
         })
-      )
-      .subscribe(technologies => this.technologies = technologies);
+      ).subscribe(technologies => this.technologies = technologies);
   }
 
   private listenChangesInForm() {
