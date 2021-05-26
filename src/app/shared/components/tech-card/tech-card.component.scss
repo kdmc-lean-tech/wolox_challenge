@@ -32,10 +32,10 @@
     background-color: $white-0;
   }
   .tech-card__logo-svg-no-toogle {
-    height: 55px;
     filter: brightness(0) invert(1);
     margin-left: 45px;
     cursor: pointer;
+    display: none;
   }
   .tech-card__logo-svg-toogle {
     height: 55px;
@@ -90,6 +90,7 @@
       filter: brightness(0) invert(1);
       margin-left: 0;
       cursor: pointer;
+      display: block;
     }
     .tech-card__logo-svg-toogle {
       height: 35px;

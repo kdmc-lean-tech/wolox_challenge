@@ -18,7 +18,6 @@ export class TechnologyListComponent implements OnInit, OnDestroy {
   ];
   public form: FormGroup;
   private subscriptions = new Subscription();
-  favorites = [];
 
   constructor(
     private technologyService: TechnologyService,
