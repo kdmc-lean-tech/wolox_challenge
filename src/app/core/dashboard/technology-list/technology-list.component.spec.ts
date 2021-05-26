@@ -6,7 +6,7 @@ import { TestTechnologiesService } from '@testing/services/technologies/test-tec
 import { TechnologyListComponent } from './technology-list.component';
 import { By } from '@angular/platform-browser';
 
-fdescribe('TechnologyListComponent', () => {
+describe('TechnologyListComponent', () => {
   let component: TechnologyListComponent;
   let fixture: ComponentFixture<TechnologyListComponent>;
   let technologyService: TechnologyService;
