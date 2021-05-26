@@ -106,7 +106,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
     this.subscriptions.add(
       this.country.valueChanges.subscribe(country => {
         this.provinces = this.countriesService.getProvincesByCountry(country);
-        if (this.provinces.length > 0) {
+        if (this.provinces?.length > 0) {
           this.province.setValue(this.provinces[0]);
         }
       })

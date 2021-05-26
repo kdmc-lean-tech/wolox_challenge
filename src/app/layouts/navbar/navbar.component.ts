@@ -5,33 +5,9 @@ import {
 } from '@services/breakpoint-observer/breakpoint-observer.service';
 import { Router } from '@angular/router';
 import { SessionService } from '@services/session/session.service';
-
-const MENU = {
-  user: [
-    {
-      href: '#home',
-      name: 'home',
-      label: 'MENU.HOME'
-    },
-    {
-      href: '#benefits',
-      name: 'benefits',
-      label: 'MENU.BENEFIT'
-    }
-  ],
-  admin: [
-    {
-      href: '#home',
-      name: 'home',
-      label: 'MENU.HOME'
-    },
-    {
-      href: '#benefits',
-      name: 'benefits',
-      label: 'MENU.BENEFIT'
-    }
-  ]
-};
+import { FavoritesService } from '@services/favorites/favorites.service';
+import { Favorite } from '@models/favorite.model';
+import { MENU } from '@shared/constants/menu/menu.model';
 
 @Component({
   selector: 'app-navbar',
@@ -42,18 +18,21 @@ export class NavbarComponent implements OnInit {
   public size$: Observable<string>;
   public menu;
   public isLoggedIn = false;
+  public favorites: Observable<Favorite[]>;
 
   constructor(
     private breakPointObserverService: BreakpointObserverService,
     private router: Router,
-    private sessionService: SessionService
+    private sessionService: SessionService,
+    private favoritesService: FavoritesService
   ) {
-    this.size$ = this.breakPointObserverService.sizeBreakpoint$;
-    this.isLoggedIn = this.sessionService.isLoggedIn;
-    this.isLoggedIn ? this.menu = MENU.admin : this.menu = MENU.user;
   }
 
   ngOnInit(): void {
+    this.size$ = this.breakPointObserverService.sizeBreakpoint$;
+    this.isLoggedIn = this.sessionService.isLoggedIn;
+    this.isLoggedIn ? this.menu = MENU.admin : this.menu = MENU.user;
+    this.favorites = this.favoritesService.favorites;
   }
 
   public navigateToResponseUrl(hiperlink: string) {

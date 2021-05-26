@@ -8,3 +8,8 @@ export interface Technology {
   type: string;
   logo: string;
 }
+
+export interface SortTechnology {
+  label: string;
+  value: string;
+}
