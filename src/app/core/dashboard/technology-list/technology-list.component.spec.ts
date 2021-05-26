@@ -171,5 +171,14 @@ describe('TechnologyListComponent', () => {
           expect(elements.length).toEqual(3);
         });
     }));
+
+    it('should render total technologies', fakeAsync(() => {
+      component.ngOnInit();
+      const element = fixture.debugElement.query(By.css('h2')).nativeElement as HTMLElement;
+      spyOn(technologyService, 'getTechnologies').and.callThrough();
+      tick();
+      fixture.detectChanges();
+      expect(element.innerHTML).toBe(`3 Technologies Found...`);
+    }));
   });
 });

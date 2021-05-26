@@ -82,9 +82,17 @@
     margin-bottom: 25px;
     flex-wrap: wrap;
     gap: 20px;
-    img {
-      height: 75px;
-      width: 95px;
+    .nav__favorites-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      img {
+        height: 75px;
+        width: 95px;
+      }
+      span {
+        @include text($black-0, 15px, 400, 'Monserrat Bold');
+      }
     }
   }
 }
