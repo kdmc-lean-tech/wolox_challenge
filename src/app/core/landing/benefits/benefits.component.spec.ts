@@ -1,4 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { TranslateModule } from '@ngx-translate/core';
+import { TranslateMockPipe } from '@testing/pipes/test-translate.pipe';
 
 import { BenefitsComponent } from './benefits.component';
 
@@ -8,7 +10,13 @@ describe('BenefitsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BenefitsComponent ]
+      declarations: [
+        BenefitsComponent,
+        TranslateMockPipe
+      ],
+      imports: [
+        TranslateModule
+      ]
     })
     .compileComponents();
   }));
