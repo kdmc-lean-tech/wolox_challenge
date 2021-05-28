@@ -110,6 +110,11 @@
           </div>
         </div>
       </div>
+      <div class="register__errors">
+        <span *ngIf="form.errors?.nonEqualPasswords">
+          Passwords do not match.
+        </span>
+      </div>
       <div class="select__countries">
         <div class="register__select-container">
           <app-select-field class="register__select" formControlName="country" [label]="'Country'">
@@ -150,11 +155,6 @@
         >
         Register
         </app-button>
-        <div class="register__errors">
-          <span *ngIf="form.errors?.nonEqualPasswords">
-            Passwords do not match.
-          </span>
-        </div>
       </div>
     </form>
   </div>

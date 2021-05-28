@@ -46,6 +46,12 @@
       display: flex;
       flex-direction: column;
       gap: 20px;
+      .register__errors {
+        height: auto;
+         span {
+           color: $red-0;
+         }
+      }
       .select__names {
         display: flex;
         justify-content: space-between;
@@ -109,6 +115,38 @@
         margin-top: 20px;
       }
       margin-bottom: 20px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    form {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .select__names {
+        width: 300px;
+        flex-direction: column;
+        .register__input-container {
+          margin-bottom: 20px;
+        }
+      }
+      .select__countries {
+        flex-direction: column;
+        width: 100%;
+        .register__select-container {
+          margin-bottom: 20px;
+          width: 250px;
+          margin-left: -40px;
+        }
+        align-items: center;
+        justify-content: center;
+      }
+      .register__errors {
+        span {
+          display: block;
+          text-align: center;
+        }
+      }
     }
   }
 

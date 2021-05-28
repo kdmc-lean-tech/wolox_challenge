@@ -21,7 +21,8 @@
     gap: 75px;
     @media (max-width: 780px) {
       flex-direction: column;
-      gap: 25px; 
+      gap: 25px;
+      margin-left: -50px;
     }
     app-select-field {
       width: 250px;
