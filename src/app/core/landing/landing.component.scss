@@ -1,0 +1,10 @@
+
+.landing__container {
+  display: flex;
+  flex-direction: column;
+  gap: 5%;
+  .landing__logo-footer {
+    display: flex;
+    justify-content: center;
+  }
+}

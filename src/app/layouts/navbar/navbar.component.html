@@ -40,7 +40,7 @@
       </div>
     </ul>
   </div>
-  <section class="nav__favorites">
+  <section class="nav__favorites" *ngIf="isLoggedIn">
     <div *ngFor="let favorite of favorites | async" class="nav__favorites-item">
       <img [src]="favorite.logo" alt="image-tech" appImgFallback>
       <span>{{ favorite?.name }}</span>
