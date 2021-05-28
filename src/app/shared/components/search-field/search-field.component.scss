@@ -1,0 +1,29 @@
+@import '../../../../scss/colors.scss';
+
+div.field-wrapper__container {
+  position: relative;
+  min-height: 50px;
+  input {
+    position: relative;
+    border: 1px solid $gray-0;
+    transition: ease-in-out, border .2s ease-in-out;
+    border-radius: 30px;
+    font-weight: 400;
+    font-size: 20px;
+    padding: 10px 25px;
+    color: $gray-0;
+    &:focus {
+      outline: none;
+      border-color: $primary-0;
+    }
+    &::placeholder {
+      color: $gray-0;
+    }
+  }
+  svg-icon {
+    position: absolute;
+    left: 250px;
+    top: 10px;
+    color: $gray-0;
+  }
+}

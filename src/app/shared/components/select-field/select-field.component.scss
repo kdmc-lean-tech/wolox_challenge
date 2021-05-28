@@ -1,0 +1,67 @@
+@import '../../../../scss/colors.scss';
+@import '../../../../scss/mixins.scss';
+
+.select__container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  .select__label {
+    @include text($gray-0, 16px, 300, 'Monserrat');
+  }
+  width: 100%;
+  .select__box {
+    display: flex;
+    flex-direction: column-reverse;
+    position: relative;
+    width: 100%;
+    .select__options-container {
+      z-index: 1;
+      position: absolute;
+      margin-top: 10px;
+      top: 60px;
+      width: 100%;
+      background-color: $white-0;
+      max-height: 150px;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      width: 100%;
+      label {
+        display: flex;
+        flex-direction: column;
+        padding: 15px 5px 15px 5px;
+        cursor: pointer;
+        @include text($black-0, 16px, 300, 'Monserrat');
+        width: 100%;
+        &:hover {
+          background-color: $gray-1;
+          opacity: 1;
+          width: 100%;
+        }
+        &.active {
+          background-color: $green-0;
+          color: $white-0;
+          width: 100%;
+        }
+        input {
+          display: none;
+        }
+      }
+      .hidden {
+        display: none;
+      }
+    }
+    .select__option-selected {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px solid $gray-0;
+      border-radius: 30px;
+      padding: 10px 20px;
+      cursor: pointer;
+      .select__option-label {
+        @include text($gray-0, 16px, 300, 'Monserrat');
+      }
+      width: 100%;
+    }
+  }
+}

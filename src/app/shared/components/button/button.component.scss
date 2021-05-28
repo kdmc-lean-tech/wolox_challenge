@@ -1,0 +1,57 @@
+@import '../../../../scss/colors.scss';
+@import '../../../../scss/mixins.scss';
+
+:host button {
+  color: $white-0;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 100%;
+  &.green {
+    @include buttonStyle($green-0, $white-0);
+  }
+  &.blue {
+    @include buttonStyle($primary-0, $white-0);
+  }
+  &.blue-outline {
+    border-radius: 30px;
+    background-color: transparent;
+    color: $white-0;
+    border: 1px solid $primary-0;
+    &:hover {
+      background-color: $primary-0;
+      color: $white-0;
+    }
+  }
+  &.xs {
+    height: 40px;
+    padding: 0 12px;
+  }
+  &.sm {
+    height: 50px;
+    font-weight: 400;
+    font-size: 16px;
+    padding: 0 25px;
+  }
+  &.md {
+    height: 60px;
+    font-weight: 400;
+    font-size: 18px;
+    padding: 0 55px;
+  }
+  &.lg {
+    height: 60px;
+    font-weight: 400;
+    font-size: 25px;
+    padding: 0 75px; 
+  }
+  &:disabled {
+    background-color: rgba(0, 0, 0, 0.04);
+    color: rgba(0,0,0,.26);
+    cursor: not-allowed;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.04);
+      color: rgba(0,0,0,.26);
+    }
+  }
+}

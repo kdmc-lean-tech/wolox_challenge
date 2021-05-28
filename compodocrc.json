@@ -1,0 +1,5 @@
+{
+  "tsconfig": "tsconfig.json",
+  "serve": true,
+  "open": true
+}

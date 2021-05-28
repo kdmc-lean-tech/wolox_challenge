@@ -1,0 +1,50 @@
+<nav class="nav">
+  <div class="nav__header">
+    <div class="nav__logo">
+      <a href="#home" class="nav__logo-link">
+        <svg-icon src="assets/svg/logo_full_color.svg" [svgClass]="'nav__logo-svg'"></svg-icon>
+      </a>
+    </div>
+    <ul>
+      <div class="nav__menu">
+        <li *ngFor="let item of menu; let i = index" class="nav__menu-item">
+          <a (click)="navigateToResponseUrl(item.href)" class="nav__menu-item-link">
+            {{ item.label | translate }}
+          </a>
+        </li>
+        <li class="nav__menu-item" *ngIf="isLoggedIn">
+          <a [routerLink]="['/dashboard']" class="nav__menu-item-link">
+            {{ 'LANDING.LIST' | translate }}
+          </a>
+        </li>
+        <li *ngIf="!isLoggedIn" class="nav__menu-item-button">
+          <app-button
+            [color]="'blue'"
+            [size]="size$ | async"
+            (submitted)="goToLogin()"
+            id="login-button"
+          >
+            <span>{{ 'LANDING.REGISTER' | translate }}</span>
+          </app-button>
+        </li>
+        <li *ngIf="isLoggedIn" class="nav__menu-item-button">
+          <app-button
+            [color]="'blue'"
+            [size]="size$ | async"
+            (submitted)="logout()"
+            id="login-button"
+          >
+            <span>{{ 'LANDING.LOGOUT' | translate }}</span>
+          </app-button>
+        </li>
+      </div>
+    </ul>
+  </div>
+  <section class="nav__favorites" *ngIf="isLoggedIn">
+    <div *ngFor="let favorite of favorites | async" class="nav__favorites-item">
+      <img [src]="favorite.logo" alt="image-tech" appImgFallback>
+      <span>{{ favorite?.name }}</span>
+    </div>
+  </section>
+  <ng-content></ng-content>
+</nav>

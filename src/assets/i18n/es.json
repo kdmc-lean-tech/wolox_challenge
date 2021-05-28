@@ -1,0 +1,34 @@
+{
+  "MENU": {
+    "BENEFIT": "Beneficios",
+    "HOME": "Inicio"
+  },
+  "LANDING": {
+    "WELCOME_TO": "Bienvenidos a",
+    "YOUR": "su",
+    "TECHNICAL": "Técnica",
+    "INTERVIEW": "Entrevista",
+    "AT": "en",
+    "WOLOX": "Wolox",
+    "REGISTER": "Registro",
+    "LOGOUT": "Logout",
+    "LIST": "Lista",
+    "WE_WORK_FOR": "Trabajamos para",
+    "CONVERT": "convertir",
+    "IDEAS": "ideas",
+    "IN": "en",
+    "PRODUCTS": "productos",
+    "WOLOXERS": "Woloxers",
+    "FOLLOW_US": "Síguenos",
+    "BENEFITS_MESSAGE": "Entre los beneficios que ofrecemos se encuentran",
+    "TIME_FLEXIBILITY": "Flexibilidad Horaria",
+    "HOME_OFFICE": "Trabajo en Casa",
+    "WORKSHOPS": "Entrenamientos y Workshops",
+    "SNACKS": "Snacks, Frutas y Bebidas Gratis",
+    "REMOTE_WEEK": "Semana Remota",
+    "WORKING_TECHNOLOGIES": "Trabajando con las últimas tecnologías",
+    "THANKS_FOR": "Gracias por",
+    "COMPLETE_EXERCISE": "completar el ejercicio",
+    "FOOTER.MESSAGE": "Te invitamos a ver más infomación"
+  }
+}

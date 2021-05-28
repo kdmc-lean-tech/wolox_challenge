@@ -1,0 +1,161 @@
+<div class="register__container">
+  <div class="register__img">
+    <img src="assets/img/img_wolox-login@3x.jpeg" alt="wolox-login">
+  </div>
+  <div class="register__form">
+    <svg-icon src="assets/svg/logo_full_color.svg" [svgClass]="'register__form-logo-svg'"></svg-icon>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="select__names">
+        <div class="register__input-container">
+          <app-input-field
+            formControlName="name"
+            [placeholder]="'Name'"
+            [label]="'Name'"
+            class="register__input"
+          ></app-input-field>
+          <div class="register__errors">
+            <span *ngIf="name.errors?.required && (name.dirty || name.touched)">
+              The field is required.
+            </span>
+            <span *ngIf="name.errors?.maxlength && (name.dirty || name.touched)">
+              Maximum 30 characters.
+            </span>
+          </div>
+        </div>
+        <div class="register__input-container">
+          <app-input-field
+            formControlName="lastName"
+            [placeholder]="'Last Name'"
+            [label]="'Last Name'"
+            class="register__input"
+          ></app-input-field>
+          <div class="register__errors">
+            <span *ngIf="lastName.errors?.required && (lastName.dirty || lastName.touched)">
+              The field is required.
+            </span>
+            <span *ngIf="lastName.errors?.maxlength && (lastName.dirty || lastName.touched)">
+              Maximum 30 characters.
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="select__names">
+        <div class="register__input-container">
+          <app-input-field
+            formControlName="email"
+            [placeholder]="'Email'"
+            [label]="'Email'"
+            class="register__input"
+          ></app-input-field>
+          <div class="register__errors">
+            <span *ngIf="email.errors?.required && (email.dirty || email.touched)">
+              The field is required.
+            </span>
+            <span *ngIf="email.errors?.email && (email.dirty || email.touched) && !email.errors?.required">
+              The email is not valid.
+            </span>
+          </div>
+        </div>
+        <div class="register__input-container">
+          <app-input-field
+            formControlName="phone"
+            [placeholder]="'Phone'"
+            [label]="'Phone'"
+            class="register__input"
+            [type]="'number'"
+          ></app-input-field>
+          <div class="register__errors">
+            <span *ngIf="phone.errors?.required && (phone.dirty || phone.touched)">
+              The field is required.
+            </span>
+            <span *ngIf="phone.errors?.maxlength && (phone.dirty || phone.touched)">
+              Maximum 10 characters.
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="select__names">
+        <div class="register__input-container">
+          <app-input-field
+            formControlName="password"
+            [placeholder]="'Password'"
+            [label]="'Password'"
+            class="register__input"
+            [type]="'password'"
+          ></app-input-field>
+          <div class="register__errors">
+            <span *ngIf="password.errors?.required && (password.dirty || password.touched)">
+              The field is required.
+            </span>
+            <span *ngIf="password.errors?.minlength && (password.dirty || password.touched)">
+              Minimum 6 characters.
+            </span>
+          </div>
+        </div>
+        <div class="register__input-container">
+          <app-input-field
+            formControlName="verifyPassword"
+            [placeholder]="'Comfirm Password'"
+            [label]="'Comfirm Password'"
+            class="register__input"
+            [type]="'password'"
+          ></app-input-field>
+          <div class="register__errors">
+            <span *ngIf="verifyPassword.errors?.required && (verifyPassword.dirty || verifyPassword.touched)">
+              The field is required.
+            </span>
+            <span *ngIf="verifyPassword.errors?.minlength && (verifyPassword.dirty || verifyPassword.touched)">
+              Minimum 6 characters.
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="register__errors">
+        <span *ngIf="form.errors?.nonEqualPasswords">
+          Passwords do not match.
+        </span>
+      </div>
+      <div class="select__countries">
+        <div class="register__select-container">
+          <app-select-field class="register__select" formControlName="country" [label]="'Country'">
+            <app-select-field-option *ngFor="let country of countries" [value]="country">
+              {{ country }}
+            </app-select-field-option>
+          </app-select-field>
+          <div class="register__errors">
+            <span *ngIf="country.errors?.required && (country.dirty || country.touched)">
+              The field is required.
+            </span>
+          </div>
+        </div>
+        <div class="register__select-container">
+          <app-select-field class="register__select" formControlName="province" [label]="'Province'">
+            <app-select-field-option *ngFor="let province of provinces" [value]="province">
+              {{ province }}
+            </app-select-field-option>
+          </app-select-field>
+          <div class="register__errors">
+            <span *ngIf="province.errors?.required && (province.dirty || province.touched)">
+              The field is required.
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="register__conditions">
+        <input type="checkbox" formControlName="conditions" name="conditions">
+        <label for="conditions" (click)="goToTermsConditions()">Terms and Conditions</label>
+      </div>
+      <div class="register__submit">
+        <app-button
+          [color]="'green'"
+          [size]="'md'"
+          [type]="'submit'"
+          id="register-button"
+          [disabled]="form.invalid"
+        >
+        Register
+        </app-button>
+      </div>
+    </form>
+  </div>
+</div>

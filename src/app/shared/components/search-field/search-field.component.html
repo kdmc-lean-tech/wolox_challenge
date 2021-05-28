@@ -1,0 +1,5 @@
+<div class="field-wrapper__container">
+  <input fxFlex="auto" [placeholder]="placeholder" [(ngModel)]="searchValue"
+    (appDebouncedInput)="onDebouncedInput($event)">
+  <svg-icon src="assets/svg/search.svg"></svg-icon>
+</div>

@@ -1,6 +1,18 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "paths": {
+      "@testing/*": ["src/testing/*"],
+      "@core/*": ["src/app/core/*"],
+      "@layouts/*": ["src/app/layouts/*"],
+      "@auth/*": ["src/app/auth/*"],
+      "@assets/*": ["src/assets/*"],
+      "@environments/*": ["src/environments/*"],
+      "@shared/*": ["src/app/shared/*"],
+      "@services/*": ["src/app/services/*"],
+      "@models/*": ["src/app/models/*"],
+      "@guards/*": ["src/app/guards/*"],
+    },
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,

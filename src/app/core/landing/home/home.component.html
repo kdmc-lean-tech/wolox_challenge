@@ -1,0 +1,39 @@
+<div class="landing__home">
+  <div class="landing__home-title">
+    <h1>{{ 'LANDING.WELCOME_TO' | translate }} {{ 'LANDING.YOUR' | translate }}</h1>
+    <h1 class="landing__home-title-strong">
+      {{ 'LANDING.TECHNICAL' | translate }}
+      {{ 'LANDING.INTERVIEW' | translate }} {{ 'LANDING.AT' | translate }}
+    </h1>
+    <h1>{{ 'LANDING.WOLOX' | translate }}</h1>
+  </div>
+  <div class="landing__home-img">
+    <img src="assets/img/Ic_ilustra_Hero@3x.png" alt="home_image">
+  </div>
+</div>
+<div class="landing__home-social">
+  <div class="landing__home-social-img">
+    <img src="assets/img/img_woloxer@3x.png" alt="wolox-img">
+    <div class="landing__home-social-title">
+      <div>
+        <h1>350 +</h1><h1>{{ 'WOLOXERS' | translate }}</h1>
+      </div>
+      <div class="landing__home-social-twitter">
+        <svg-icon src="assets/svg/twitter.svg" [svgClass]="'landing__home-social__logo-svg'"></svg-icon>
+        <p>@Wolox</p>
+      </div>
+      <app-button [color]="'blue-outline'" [size]="'sm'">
+        {{ 'LANDING.FOLLOW_US' | translate }}
+      </app-button>
+    </div>
+  </div>
+  <div class="landing__home-social-message">
+    <div>
+      <h1>{{ 'LANDING.WE_WORK_FOR' | translate }}</h1>
+      <h1>{{ 'LANDING.CONVERT' | translate }}</h1>
+      <h1>{{ 'LANDING.IDEAS' | translate }}</h1>
+      <h1>{{ 'LANDING.IN' | translate }}</h1>
+      <h1>{{ 'LANDING.PRODUCTS' | translate }}</h1>
+    </div>
+  </div>
+</div>

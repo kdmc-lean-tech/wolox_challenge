@@ -1,0 +1,17 @@
+
+@mixin text($color, $fontSize, $fontweight, $font-family) {
+  color: $color;
+  font-size: $fontSize;
+  font-weight: $fontweight;
+  font-family: $font-family;
+}
+
+@mixin buttonStyle($primaryColor, $secondColor) {
+  background-color: $secondColor;
+  border: 1px solid $primaryColor;
+  color: $primaryColor;
+  &:hover {
+    background-color: $primaryColor;
+    color: $secondColor;
+  }
+}
