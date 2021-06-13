@@ -35,41 +35,51 @@ describe('TechnologyListComponent', () => {
   describe('Form Validations', () => {
     let sortControl: AbstractControl;
     let searchControl: AbstractControl;
+    let typeControl: AbstractControl;
 
     beforeEach(() => {
       component.ngOnInit();
       sortControl = component.form.get('sort');
       searchControl = component.form.get('search');
+      typeControl = component.form.get('type');
     });
 
     it('should set sort control by default value', () => {
       expect(sortControl.value).toEqual({ label: 'Ascending', value: 'ASC' });
+      expect(typeControl.value).toEqual('tech');
     });
 
     it('should call getTechnologies() method when component is created', fakeAsync(() => {
       const getTehcnologiesSpy = spyOn(component, 'getTechnologies');
       component.ngOnInit();
       tick();
-      expect(getTehcnologiesSpy).toHaveBeenCalledWith('', 'ASC');
+      expect(getTehcnologiesSpy).toHaveBeenCalledWith('', 'ASC', 'tech');
     }));
 
     it('should call getTehcnologies() method when change some control', fakeAsync(() => {
       const getTehcnologiesSpy = spyOn(component, 'getTechnologies');
       sortControl.setValue({ label: 'Ascending', value: 'ASC' });
       searchControl.setValue('angular');
+      typeControl.setValue('tech');
       tick();
-      expect(getTehcnologiesSpy).toHaveBeenCalledWith(searchControl.value, sortControl.value.value);
+      expect(getTehcnologiesSpy).toHaveBeenCalledWith(
+        searchControl.value,
+        sortControl.value.value,
+        typeControl.value
+      );
     }));
   });
 
   describe('Filter Validations', () => {
     let sortControl: AbstractControl;
     let searchControl: AbstractControl;
+    let typeControl: AbstractControl;
 
     beforeEach(() => {
       component.ngOnInit();
       sortControl = component.form.get('sort');
       searchControl = component.form.get('search');
+      typeControl = component.form.get('type');
       component.technologies = [];
     });
 
@@ -132,16 +142,35 @@ describe('TechnologyListComponent', () => {
       expect(component.technologies[0].tech).toBe('React Native');
       expect(component.technologies[1].tech).toBe('React');
     }));
+
+    it('should return empty technologies when type is author and search is angular', fakeAsync(() => {
+      searchControl.setValue('angular');
+      typeControl.setValue('author');
+      spyOn(technologyService, 'getTechnologies').and.callThrough();
+      tick();
+      expect(component.technologies.length).toEqual(0);
+    }));
+
+    it('should return IOS technology when type is language and search is swi', fakeAsync(() => {
+      searchControl.setValue('type');
+      typeControl.setValue('language');
+      sortControl.setValue({ label: 'Descending', value: 'DESC' });
+      spyOn(technologyService, 'getTechnologies').and.callThrough();
+      tick();
+      expect(component.technologies.length).toEqual(1);
+    }));
   });
 
   describe('UI Validations', () => {
     let sortControl: AbstractControl;
     let searchControl: AbstractControl;
+    let typeControl: AbstractControl;
 
     beforeEach(() => {
       component.ngOnInit();
       sortControl = component.form.get('sort');
       searchControl = component.form.get('search');
+      typeControl = component.form.get('type');
       component.technologies = [];
     });
 
@@ -179,6 +208,17 @@ describe('TechnologyListComponent', () => {
       tick();
       fixture.detectChanges();
       expect(element.innerHTML).toBe(`3 Technologies Found...`);
+    }));
+
+    it('should render Angular technology when type is language and search is ruby', fakeAsync(() => {
+      component.ngOnInit();
+      searchControl.setValue('google');
+      typeControl.setValue('author');
+      spyOn(technologyService, 'getTechnologies').and.callThrough();
+      tick();
+      const element = fixture.debugElement.query(By.css('h2')).nativeElement as HTMLElement;
+      fixture.detectChanges();
+      expect(element.innerHTML).toBe(`1 Technologies Found...`);
     }));
   });
 });

@@ -27,7 +27,7 @@ export class TechnologyListComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.createForm();
-    this.getTechnologies('', 'ASC', 'author');
+    this.getTechnologies('', 'ASC', 'tech');
     this.listenChangesInForm();
   }
 
