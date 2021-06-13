@@ -27,13 +27,12 @@ describe('ButtonComponent', () => {
     expect(component.size).toBe('xs');
   });
 
-  it('should call eventClick method when the user clicks in button', fakeAsync(() => {
+  it('should call eventClick method when the user clicks in button', () => {
     const spyEventClick = spyOn(component, 'eventClick');
     const button = fixture.debugElement.query(By.css('button')).nativeElement as HTMLElement;
     button.click();
-    tick();
     expect(spyEventClick).toHaveBeenCalled();
-  }));
+  });
 
   it('should emit with the submitted output', fakeAsync(() => {
     component.eventClick();

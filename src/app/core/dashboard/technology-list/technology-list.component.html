@@ -7,6 +7,11 @@
         {{ s.label }}
       </app-select-field-option>
     </app-select-field>
+    <app-select-field formControlName="type">
+      <app-select-field-option *ngFor="let type of typeList " [value]="type" id="option">
+        {{ type }}
+      </app-select-field-option>
+    </app-select-field>
   </form>
   <div class="technology-list__List">
     <app-tech-card class="technology-list__card" *ngFor="let tech of technologies" [technology]="tech"

@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { SortTechnology, Technology } from '@models/technology.model';
+import { SortTechnology, Technology, TypeTechnology } from '@models/technology.model';
 import { TechnologyService } from '@services/technologies/technologies.service';
 import { Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -16,6 +16,7 @@ export class TechnologyListComponent implements OnInit, OnDestroy {
     { label: 'Ascending', value: 'ASC' },
     { label: 'Descending', value: 'DESC' }
   ];
+  public typeList = ['tech', 'author', 'license', 'language', 'type'];
   public form: FormGroup;
   private subscriptions = new Subscription();
 
@@ -26,26 +27,27 @@ export class TechnologyListComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.createForm();
-    this.getTechnologies('', 'ASC');
+    this.getTechnologies('', 'ASC', 'author');
     this.listenChangesInForm();
   }
 
   private createForm() {
     this.form = this.fb.group({
       sort: new FormControl(''),
-      search: new FormControl('')
+      search: new FormControl(''),
+      type: new FormControl('')
     });
-    this.form.get('sort').setValue({ label: 'Ascending', value: 'ASC' });
+    this.form.patchValue({
+      sort: { label: 'Ascending', value: 'ASC' },
+      type: 'tech'
+    });
   }
 
-  public getTechnologies(search: string, sort: 'ASC' | 'DESC' = 'ASC') {
+  public getTechnologies(search: string, sort: 'ASC' | 'DESC' = 'ASC', type: TypeTechnology) {
     this.technologyService.getTechnologies()
       .pipe(
         map((technologies) =>
-        technologies.filter(t =>
-          t.tech?.toLocaleLowerCase()?.includes(search?.toLowerCase()?.trim())
-          ||
-          t.type?.toLocaleLowerCase().includes(search?.toLowerCase()?.trim()))
+        technologies.filter(t => t[type]?.toLocaleLowerCase()?.includes(search?.toLowerCase()?.trim()))
       ))
       .pipe(
         map((technologies) => {
@@ -63,9 +65,8 @@ export class TechnologyListComponent implements OnInit, OnDestroy {
 
   private listenChangesInForm() {
     this.subscriptions.add(
-      this.form.valueChanges.subscribe(values => {
-        this.getTechnologies(values.search, values.sort.value);
-      })
+      this.form.valueChanges.subscribe(values =>
+        this.getTechnologies(values.search, values.sort.value, values.type))
     );
   }
 

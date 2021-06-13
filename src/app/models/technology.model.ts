@@ -13,3 +13,5 @@ export interface SortTechnology {
   label: string;
   value: string;
 }
+
+export type TypeTechnology = 'tech' | 'author' | 'license' | 'language' | 'type' ;
